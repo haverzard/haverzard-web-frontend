@@ -1,3 +1,11 @@
+<script>
+    let msg = {
+        "now": "??? is coming soon! It's on progress. Please kindly wait",
+        "later": "It's not just fast, it's secure and easy to use.",
+        "button": "Please Wait!"
+    }
+</script>
+
 <style>
 	#contents {
 		width: 100%;
@@ -7,14 +15,11 @@
         flex-direction: column;
 	}
 	.blink {
-		animation: blink_text 1s infinite;
+		animation: blink_text 0.7s infinite alternate;
 	}
 	@keyframes blink_text{
-		0%{     color: #aaa;    }
-		49%{    color: #aaa; }
-		60%{    color: transparent; }
-		99%{    color:transparent;  }
-		100%{   color: #aaa;    }
+		0%{     color: #000;    }
+		100%{    color:transparent;  }
 	}
 	#title {
         margin-top: 100px;
@@ -23,31 +28,53 @@
     }
     #announce {
         width: 100%;
+        margin-top: 50px;
         margin-bottom: 200px;
+        background-color: #eee;
     }
     .announce_container {
         width: 100%;
-        margin-top: 200px;
         display: flex;
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-        background-color: #59608f;
     }
     .announce_box {
-        width: 500px;
+        width: 1000px;
         height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .announce_title {
-        height: 150px;
+        height: 200px;
         font-size: 50px;
+        padding-top: 100px;
         display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        border-bottom: 1px #AAA solid;
+        text-align: center;
+    }
+    .announce_title::before {
+        content: open-quote;
+    }
+    .announce_title::after {
+        content: close-quote;
     }
     .announce_text {
+        width: 33%;
+        height: 50px;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
+        border: 3px #1b3c70 solid;
+        background-color: #1b3c70;
+        color: #fff;
+    }
+    .announce_text:hover {
+        background-color: #70a7ff;
+        border: 3px #387ce8 solid;
+        color: #eee;
     }
     @media (max-width: 1000px) {
         #title {
@@ -55,16 +82,18 @@
             font-size: 150px;
         }
         .announce_box {
-            width: 100%;
+            width: 88%;
             height: 1000px;
         }
         .announce_title {
-            height: 150px;
+            margin-top: 100px;
+            height: 500px;
             font-size: 80px;
-            border-bottom: 3px #AAA solid;
         }
         .announce_text {
-            font-size: 40px;
+            height: 100px;
+            width: 50%;
+            font-size: 60px;
         }
     }
 </style>
@@ -76,14 +105,11 @@
     <div id="announce">
         <div class="announce_container">
             <div class="announce_box">
-                <img class="announce_box" style="opacity: 0.5;" src="images/main_project.png" alt="Project">              
-            </div>
-            <div class="announce_box">
                 <div class="announce_title">
-                    Coming Soon
+                    {msg["now"]}
                 </div>
                 <div class="announce_text">
-                    May 1st, 2020
+                    {msg['button']}
                 </div>
             </div>
         </div>

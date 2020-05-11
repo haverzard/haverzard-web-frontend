@@ -5,6 +5,8 @@
 	import Home from './routes/Home.svelte'
 	import About from './routes/About.svelte'
 	import Project from './routes/Project.svelte'
+	import Fornax from './routes/Fornax.svelte'
+
 	export let url = ""
 </script>
 
@@ -16,10 +18,11 @@
 </style>
 
 <Router url="{url}">
-	<div class="container">
+	<div style="position: absolute" class="container">
 		<Header/>
-		<Route path="projects" component="{Project}" />	
-		<Route path="about" component="{About}" />	
+		<Route path="projects" component="{Project}"/>
+		<Route path="about" component="{About}"/>	
+		<Route path="fornax" component="{Fornax}"/>
     	<Route path="/"><Home /></Route>
 		<Footer/>
 	</div>

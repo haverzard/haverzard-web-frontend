@@ -1,17 +1,23 @@
 <script>
+	import { getContext, createEventDispatcher } from "svelte";
 	import { fly } from 'svelte/transition'
-	import { Link } from "svelte-routing";
+	import { Link,  navigate } from "svelte-routing";
 
 	export let to = "";
 
-	function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
-	const isActive = href === "/" ? isCurrent : isPartiallyCurrent || isCurrent;
+	const dispatch = createEventDispatcher();
 
-	// The object returned here is spread on the anchor element's attributes
-	if (isActive) {
-		return { class: "active" };
-	}
+	function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
+		const isActive = href === "/" ? isCurrent : isPartiallyCurrent || isCurrent;
+
+		if (isActive) {
+			return { class: "active" };
+		}
 		return {};
+	}
+
+	function onClick(event) {
+		navigate(to, { replace: true });
 	}
 </script>
 
@@ -20,10 +26,12 @@
 		min-width: 150px;
 		display: flex;
 		justify-content: center;
+		cursor: pointer;
 	}
 	@media (max-width: 1000px) {
 		.link_box {
 			width: 100%;
+			height: 100px;
 			display: flex;
 			justify-content: center;
 			font-size: 50px;
@@ -32,7 +40,7 @@
 	}
 </style>
 
-<div class="link_box" transition:fly="{{ x: -50, duration: 500 }}">
+<div on:click="{onClick}" class="link_box" transition:fly="{{ x: -50, duration: 500 }}">
 	<Link to="{to}" getProps="{getProps}">
 		<slot />
 	</Link>

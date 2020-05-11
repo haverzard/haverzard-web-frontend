@@ -26,7 +26,7 @@
 	#footer {
 		width: 100%;
 		min-height: 10vh;
-		background-color: #000;
+		background-color: #253770;
 		color: #FFF;
 		padding-top: 20px;
 		display: flex;
@@ -49,6 +49,7 @@
 	.social_media_img2 {
 		width: 30px;
 		height: 30px;
+		cursor: pointer;
 	}
 	.copy_text {
 		position: absolute; 
@@ -81,8 +82,8 @@
         Created and designed by haverzard.	
     </div>
     <div id="social_media">
-        <img on:click={goInstagram} class="social_media_img" src="images/instagram.png" alt="instagram">
-        <img on:click={goGithub} class="social_media_img" src="images/github.png" alt="github">
+        <a href="https://www.instagram.com/haverzard/"><img class="social_media_img" src="images/instagram.png" alt="instagram"></a>
+         <a href="https://github.com/haverzard"><img on:click={goGithub} class="social_media_img" src="images/github.png" alt="github"></a>
         <div class="social_media_img">
 			<img class="social_media_img2" style="position:absolute" on:click={goGmail} src="images/gmail.png" alt="gmail">
 			
