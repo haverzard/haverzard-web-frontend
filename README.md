@@ -11,3 +11,7 @@ Haverzard website front-end using Svelte Framework.
 
 ## Run
 ```npm start```
+
+## View
+![Home](git_assets/home.png)
+![Projects](git_assets/projects.png)
